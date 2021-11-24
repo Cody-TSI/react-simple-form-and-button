@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# react-simple-form-and-button
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This react application is a webpage with 2 sections, first section is a form with a movie name and movie genre text input with a submit button. The second section is just a button and some text that shows how many times you have clicked the button.
 
-## Available Scripts
+This project provides an example of how to use a form and a button inside react to enable some interactivity on your web app. You can also view an example of state within a class
 
-In the project directory, you can run:
+There are 2 class components in this project
 
-### `npm start`
+- Body
+  - Form
+  - Button
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## _Body_
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This is the main component, linked to the base `ReactDOM.render()`. It holds the `Form` and `Button` components. It simply acts as a container to hold the components needed for that web page.
 
-### `npm test`
+## _Form_
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This component simply manages a single form with 2 text inputs and a submit, it handles all interactivity, and shows an alert when submitted.
 
-### `npm run build`
+The input from the 2 text inputs are stored as a state within the component, its this state that gets read for the alert output.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+There are 2 methods in this class.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**HandleInputChange()**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This method takes in an event, from that event it grabs the users input and stores it in to an appropriate state by checking the events id. This method gets used inside the text inputs `onChange` attribute.
 
-### `npm run eject`
+**HandleSubmit()**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This method is called in the HTML forms `onSubmit` attribute. This function provides the logic for when the submit button is pressed. In this case it shows an alert that prints out the contents of the 2 text fields (which is stored in state) at the time of submitting.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## _Button_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This component manages a single button and displays some text that shows how many times that button has been pressed.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+There is one method.
 
-## Learn More
+**handleClick()**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This method holds the logic for what happens when the button gets clicked, it gets called inside the buttons `onClick` attribute. Simply, it just adds 1 to the components `clickNumber` state. This state is then used to output how many times you have clicked the button.
